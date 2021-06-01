@@ -12,6 +12,7 @@ dependencies {
     val serenityVersion = "2.4.24"
     val cucumberVersion = "6.10.4"
     val junitVersion = "5.7.1"
+
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
     testImplementation("io.cucumber:cucumber-java:${cucumberVersion}")
@@ -24,9 +25,11 @@ dependencies {
 //    implementation ("net.serenity-bdd:serenity-gradle-plugin:${serenityVersion}")
 
     // This dependency is used by the application.
-    implementation("com.google.guava:guava:30.0-jre")
-    // https://mvnrepository.com/artifact/org.projectlombok/lombok
-    compileOnly("org.projectlombok:lombok: 1.18.20")
+//    implementation("com.google.guava:guava:30.0-jre")
+
+//    compileOnly("org.projectlombok:lombok: 1.18.20")
+
+    testImplementation("io.rest-assured:rest-assured:4.4.0")
 
 
 }
