@@ -6,33 +6,26 @@ import io.restassured.config.HttpClientConfig;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
-import lombok.extern.slf4j.Slf4j;
 import myPackage.constants.ConfigConstant;
 import myPackage.singeltons.ConfigSource;
 import net.serenitybdd.rest.RestDefaults;
 import net.serenitybdd.rest.SerenityRest;
 import org.apache.logging.log4j.LogManager;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
 import static org.apache.http.params.CoreConnectionPNames.CONNECTION_TIMEOUT;
 import static org.apache.http.params.CoreConnectionPNames.SO_TIMEOUT;
 
-/**
- * Created by patrik.kempec on 2/14/2017.
- */
-@Slf4j
-public class ConfigUtil {
-    private static final org.apache.logging.log4j.Logger log = LogManager.getLogger(ConfigUtil.class);
 
-    private static final String WEBDRIVER_FIREFOX_BIN = "webdriver.firefox.bin";
-    private static final String WEBDRIVER_GECKO_BIN = "webdriver.gecko.driver";
+public class ConfigUtil {
+    private static final Logger log = LogManager.getLogger(ConfigUtil.class);
+
+//    private static final String WEBDRIVER_FIREFOX_BIN = "webdriver.firefox.bin";
+//    private static final String WEBDRIVER_GECKO_BIN = "webdriver.gecko.driver";
     private static final String SOCKET_TIMEOUT = "socketTimeout";
     private static final String CONN_TIMEOUT = "connectionTimeout";
-    private static final Logger LOG = LoggerFactory.getLogger(ConfigUtil.class);
-
 
     public static String getString(String s) {
         return ConfigSource.INSTANCE.config.getString(s);
@@ -60,17 +53,17 @@ public class ConfigUtil {
         setRestAssuredInit();
     }
 
-    public static void initWebDriver() {
-        log.info("Initialize web driver config");
-        String firefox = System.getProperty(WEBDRIVER_FIREFOX_BIN);
-        String gecko = System.getProperty(WEBDRIVER_GECKO_BIN);
-        if (firefox == null) {
-            System.setProperty(WEBDRIVER_FIREFOX_BIN, ConfigUtil.getString(ConfigConstant.WEBDRIVER_PATH_FIREFOX));
-        }
-        if (gecko == null) {
-            System.setProperty(WEBDRIVER_GECKO_BIN, ConfigUtil.getString(ConfigConstant.WEBDRIVER_PATH_CHROME));
-        }
-    }
+//    public static void initWebDriver() {
+//        log.info("Initialize web driver config");
+//        String firefox = System.getProperty(WEBDRIVER_FIREFOX_BIN);
+//        String gecko = System.getProperty(WEBDRIVER_GECKO_BIN);
+//        if (firefox == null) {
+//            System.setProperty(WEBDRIVER_FIREFOX_BIN, ConfigUtil.getString(ConfigConstant.WEBDRIVER_PATH_FIREFOX));
+//        }
+//        if (gecko == null) {
+//            System.setProperty(WEBDRIVER_GECKO_BIN, ConfigUtil.getString(ConfigConstant.WEBDRIVER_PATH_CHROME));
+//        }
+//    }
 
     private static void setSerenityRestInit() {
         SerenityRest.setDefaultPort(ConfigUtil.getInt(ConfigConstant.APP_PORT));
