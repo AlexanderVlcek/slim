@@ -1,4 +1,4 @@
-package myPackage.constantsEnums;
+package myPackage.constants;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package myPackage.constantsEnums;
+package myPackage.constants;
 
 public enum ExampleShortCuts {
     ML("M", "Ml"),
